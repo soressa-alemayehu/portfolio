@@ -29,7 +29,7 @@ export function Services() {
       {/* Headings */}
       <div className="flex flex-col gap-4 max-w-2xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white font-display">
-          Capabilities & Services
+        Services
         </h1>
         <p className="text-brand-text-secondary text-sm sm:text-base leading-relaxed">
           High-performance development services tailored for complex business challenges. Offering full lifecycle implementation from initial proof-of-concept to global cloud deployments.

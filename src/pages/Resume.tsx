@@ -65,7 +65,7 @@ export function Resume() {
         {/* Experience Timeline */}
         <div className="flex flex-col gap-6">
           <h2 className="text-xs font-mono font-bold tracking-widest text-white uppercase border-b border-brand-border/20 pb-1.5 w-fit print:text-black print:border-slate-300">
-            Professional Experience
+            Experience
           </h2>
           <div className="flex flex-col gap-6">
             {data.experience.map((exp, idx) => (
