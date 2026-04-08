@@ -101,7 +101,7 @@ export function Home() {
                 SA
               </div>
               <h3 className="text-white font-mono text-sm font-semibold tracking-widest uppercase">
-                SOFTWARE DEVELOPER & A
+                SOFTWARE DEVELOPER & 
               </h3>
               <p className="text-xs text-brand-text-secondary leading-relaxed">
                 Full-Stack Systems Engineer focusing on deep learning optimizations and client integration.
