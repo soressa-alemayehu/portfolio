@@ -98,10 +98,10 @@ export function Home() {
             <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/10 via-brand-purple/10 to-brand-indigo/10 z-0" />
             <div className="z-10 p-8 text-center flex flex-col gap-4">
               <div className="w-20 h-20 rounded-2xl bg-brand-bg border border-brand-border/60 mx-auto flex items-center justify-center text-brand-cyan font-black text-2xl shadow-[0_0_20px_rgba(6,182,212,0.2)]">
-                DE
+                SA
               </div>
               <h3 className="text-white font-mono text-sm font-semibold tracking-widest uppercase">
-                Core Neural Pipeline
+                DEVELOPER
               </h3>
               <p className="text-xs text-brand-text-secondary leading-relaxed">
                 Full-Stack Systems Engineer focusing on deep learning optimizations and client integration.
