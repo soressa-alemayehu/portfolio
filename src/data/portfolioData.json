@@ -1,0 +1,298 @@
+{
+  "siteSettings": {
+    "logoText": "SoreAlex",
+    "systemStatusText": "",
+    "resumeUrl": "#"
+  },
+  "hero": {
+    "name": "Soressa Alemayehu",
+    "title": "Full Stack Developer | AI Engineer",
+    "tagline": "Building scalable web applications, intelligent software, and modern digital experiences.",
+    "ctaText": "View Projects",
+    "secondaryCtaText": "Download Resume"
+  },
+  "about": {
+    "title": "Technical Mastery & Artificial Intelligence",
+    "paragraphs": [
+      "I am a passionate Full Stack Developer with experience designing and developing scalable web applications, REST APIs, cloud-based systems, and AI-powered software.",
+      "I enjoy solving real-world business problems through clean architecture, intuitive user experiences, and modern technologies. My focus is on building reliable, maintainable, and high-performance applications that deliver measurable value."
+    ],
+    "quote": "The best software doesn't just solve problems; it anticipates them through data-driven insight."
+  },
+  "stats": [
+    { "value": "50+", "label": "Projects Completed" },
+    { "value": "5+", "label": "Years Exp" },
+    { "value": "10+", "label": "AI Models Trained" },
+    { "value": "2k+", "label": "Commits / Year" }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Flutter"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Express", "Laravel", "PHP", "Python"]
+    },
+    {
+      "category": "Databases",
+      "items": ["PostgreSQL", "MySQL", "MongoDB", "Firebase"]
+    },
+    {
+      "category": "Cloud",
+      "items": ["Cloudflare", "Vercel", "Docker", "GitHub Actions"]
+    },
+    {
+      "category": "AI/ML",
+      "items": ["OpenAI", "Gemini", "LangChain", "Prompt Engineering", "MCP"]
+    },
+    {
+      "category": "Tools",
+      "items": ["Git", "GitHub", "Figma", "Postman", "VS Code", "Docker"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "neural-flow-v2",
+      "title": "NeuralFlow v2",
+      "tagline": "Self-optimizing inference engine designed for edge deployment.",
+      "description": "An advanced AI project that enables lightning-fast inference on edge devices by automatically optimizing model weights and operations in real-time.",
+      "longDescription": "NeuralFlow v2 addresses the challenges of deploying heavy neural network models to constraint-oriented edge nodes. Built on a hybrid Rust-Python architecture, it performs model quantization, pruning, and layout optimization in flight. Through automated caching and pipeline profiling, it minimizes power draw and maximizes hardware utilization without sacrificing model accuracy.",
+      "category": "AI",
+      "techStack": ["Python", "Tensorflow", "Rust"],
+      "image": "/images/project1.png",
+      "metrics": [
+        "85% Increase in Inference Speed",
+        "Zero-latency execution",
+        "Custom RAG orchestration"
+      ],
+      "links": {
+        "live": "https://neuralflow.devengine.ai",
+        "github": "https://github.com/soressa-alemayehu/neuralflow-v2"
+      },
+      "featured": true
+    },
+    {
+      "id": "quant-dashboard",
+      "title": "QuantDashboard",
+      "tagline": "Real-time financial analytics platform with sub-100ms latency.",
+      "description": "A high-performance web dashboard displaying real-time stock and cryptocurrency trends, portfolio valuations, and risk calculations.",
+      "longDescription": "QuantDashboard is designed for proprietary trading desks and retail investors who require instant market data. Employing binary WebSocket protocols and React 19 concurrent rendering, the platform streams over 10,000 tick updates per second to the client side. Web Workers process incoming data off the main thread, maintaining fluid 60fps animations for charting and visualizations.",
+      "category": "Web",
+      "techStack": ["React", "Next.js", "WebSockets", "Node.js"],
+      "image": "/images/project2.png",
+      "metrics": [
+        "Sub-100ms latency data streams",
+        "Multi-threaded calculations",
+        "Responsive charts & indicators"
+      ],
+      "links": {
+        "live": "https://quant.devengine.ai",
+        "github": "https://github.com/soressa-alemayehu/quant-dashboard"
+      },
+      "featured": true
+    },
+    {
+      "id": "devengine-cli",
+      "title": "DevEngine CLI",
+      "tagline": "Command-line interface for automating complex cloud deployments.",
+      "description": "A developer tool designed to bootstrap microservices, configure infrastructure-as-code, and manage deployments securely from the terminal.",
+      "longDescription": "DevEngine CLI simplifies cloud orchestrations by consolidating multiple provider workflows into a single terminal utility. Developers can configure resources, create databases, establish SSL certificates, and link repositories in seconds. Built-in encryption secures environment variables and credentials locally before transmitting them to container clusters.",
+      "category": "Open Source",
+      "techStack": ["Go", "Terraform", "CLI"],
+      "image": "/images/project3.png",
+      "metrics": [
+        "Over 5,000 active CLI installs",
+        "Automated multi-cloud integrations",
+        "Highly secure secrets management"
+      ],
+      "links": {
+        "live": "https://cli.devengine.ai",
+        "github": "https://github.com/soressa-alemayehu/devengine-cli"
+      },
+      "featured": true
+    },
+    {
+      "id": "erp-platform",
+      "title": "ERP Platform",
+      "tagline": "Enterprise resource planning software for medium-sized businesses.",
+      "description": "A comprehensive cloud ERP to streamline inventories, track customer relationships, manage finances, and generate detailed reports.",
+      "longDescription": "This cloud-native ERP platform helps businesses integrate core operations under one portal. It includes general ledger accounting, automated procurement loops, real-time inventory adjustments, and extensive permission controls for diverse department managers. A highly reliable PostgreSQL schema keeps transactional data consistent even during peak usage hours.",
+      "category": "Web",
+      "techStack": ["React", "Node.js", "PostgreSQL", "Docker"],
+      "image": "/images/project4.png",
+      "metrics": [
+        "40% reduction in administration costs",
+        "ACID compliant transactions",
+        "Granular role-based controls"
+      ],
+      "links": {
+        "live": "https://erp.devengine.ai",
+        "github": "https://github.com/soressa-alemayehu/erp-platform"
+      },
+      "featured": false
+    },
+    {
+      "id": "lms-platform",
+      "title": "Learning Management System",
+      "tagline": "Modern LMS with student portal, instructor dashboard, and analytics.",
+      "description": "An education portal supporting course creation, interactive quizzes, automated grading systems, and detailed tracking of student engagement.",
+      "longDescription": "Designed to modernize institutional teaching, this LMS supports video hosting, live classrooms, peer discussion rooms, and submission feedback cycles. It processes media formats cleanly and offers instructors automated progress dashboards that highlight students who might require extra attention or assistance.",
+      "category": "Web",
+      "techStack": ["React", "Express", "MongoDB", "Node.js"],
+      "image": "/images/project5.png",
+      "metrics": [
+        "99.8% server uptime during exams",
+        "Automated grading pipelines",
+        "Responsive video player features"
+      ],
+      "links": {
+        "live": "https://lms.devengine.ai",
+        "github": "https://github.com/soressa-alemayehu/lms-platform"
+      },
+      "featured": false
+    },
+    {
+      "id": "ai-assistant",
+      "title": "AI Business Assistant",
+      "tagline": "AI chatbot interacting with ERP systems and generating insights.",
+      "description": "An intelligent virtual assistant integrated directly with corporate databases, capable of generating business summaries, answering audits, and fetching records.",
+      "longDescription": "This chatbot utilizes Retrieval-Augmented Generation (RAG) to query private enterprise data securely. Instead of training custom models, it formats SQL queries from natural language, cross-references files, and outputs graphs directly in chat interface, enabling executives to pull real-time data reports within seconds.",
+      "category": "AI",
+      "techStack": ["Python", "LangChain", "Gemini", "PostgreSQL"],
+      "image": "/images/project6.png",
+      "metrics": [
+        "Instant query execution time",
+        "95% accuracy in report generation",
+        "Fully secured database sandboxing"
+      ],
+      "links": {
+        "live": "https://assistant.devengine.ai",
+        "github": "https://github.com/soressa-alemayehu/ai-assistant"
+      },
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "role": "Senior AI Infrastructure Engineer",
+      "company": "QuantumNexus Solutions",
+      "type": "Remote",
+      "date": "2022 - Present",
+      "description": [
+        "Architected and deployed a scalable vector database cluster handling 50M+ embeddings for real-time RAG applications.",
+        "Optimized Kubernetes inference pipelines reducing latency by 45% for LLM-based microservices.",
+        "Led a team of 5 engineers in migrating legacy monolithic architecture to an event-driven AI-first ecosystem."
+      ],
+      "skills": ["Go", "PyTorch", "GCP", "Kubernetes", "Vector DB"]
+    },
+    {
+      "role": "Lead Full-Stack Developer",
+      "company": "DevStream Systems",
+      "type": "Onsite",
+      "date": "2019 - 2022",
+      "description": [
+        "Designed a custom React-based design system now used across 12 internal products, ensuring UI/UX consistency.",
+        "Integrated automated CI/CD security scanning, reducing critical vulnerabilities by 80%.",
+        "Engineered a real-time data visualization dashboard for industrial IoT monitoring using WebSockets and D3.js."
+      ],
+      "skills": ["TypeScript", "Node.js", "React", "Docker", "D3.js"]
+    },
+    {
+      "role": "Full Stack Developer",
+      "company": "Personal Projects / Freelance",
+      "type": "Remote",
+      "date": "2024 - Present",
+      "description": [
+        "Designed and built multiple production-quality web applications using React, Node.js, PostgreSQL, and cloud deployment.",
+        "Created an AI Assistant dashboard, ERP platform, and specialized developer tooling."
+      ],
+      "skills": ["React", "Tailwind CSS", "Sanity CMS", "Node.js", "PostgreSQL"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "M.Sc. in Artificial Intelligence",
+      "school": "Stanford University",
+      "date": "2017 - 2019",
+      "details": "Focus on Neural Networks, Distributed Systems, and High-Performance Computing.",
+      "featured": true
+    },
+    {
+      "degree": "B.S. in Computer Science",
+      "school": "Hawassa University",
+      "date": "2013 - 2017",
+      "details": "Graduated with honors. Solid foundation in data structures, algorithms, and software engineering.",
+      "featured": false
+    }
+  ],
+  "certifications": [
+    { "title": "AWS Solutions Architect", "issuer": "AWS", "level": "PROFESSIONAL LEVEL", "icon": "cloud" },
+    { "title": "Google Cloud ML Eng", "issuer": "Google Cloud", "level": "ADVANCED AI/ML", "icon": "cpu" },
+    { "title": "CKAD Certified", "issuer": "CNCF", "level": "KUBERNETES NATIVE", "icon": "terminal" },
+    { "title": "CompTIA Security+", "issuer": "CompTIA", "level": "SECURITY FOUNDATIONS", "icon": "shield" },
+    { "title": "MongoDB Associate", "issuer": "MongoDB", "level": "DATABASE EXPERT", "icon": "database" },
+    { "title": "Meta Front-End", "issuer": "Meta", "level": "UI ARCHITECTURE", "icon": "code" }
+  ],
+  "services": [
+    {
+      "title": "Web Development",
+      "description": "High-performance, responsive applications built with React/Next.js and optimized for speed and SEO.",
+      "icon": "monitor"
+    },
+    {
+      "title": "AI Integration",
+      "description": "Embedding intelligent features like chatbots, prediction engines, and automation into your platform.",
+      "icon": "cpu",
+      "badge": "POPULAR"
+    },
+    {
+      "title": "Technical Consulting",
+      "description": "Strategic guidance on architecture, AI roadmapping, and legacy system modernization.",
+      "icon": "git-branch"
+    },
+    {
+      "title": "Mobile App Development",
+      "description": "Cross-platform mobile applications using Flutter with real-time GPS tracking and fluid animations.",
+      "icon": "smartphone"
+    },
+    {
+      "title": "REST API Development",
+      "description": "Highly scalable backend APIs, secure microservices, and reliable cloud database architectures.",
+      "icon": "link"
+    },
+    {
+      "title": "Cloud Deployment",
+      "description": "Automated deployments using CI/CD pipelines, Docker containers, and Cloudflare serverless environments.",
+      "icon": "cloud"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "A rare talent who truly understands the math behind the AI and the engineering behind the web. DevEngine delivered our MVP ahead of schedule.",
+      "stars": 5,
+      "name": "Sarah Jenkins",
+      "role": "CTO, DeepMind AI",
+      "avatar": "SJ"
+    },
+    {
+      "quote": "The architecture implemented for our distributed systems was flawless. Highly recommend for any complex full-stack initiative.",
+      "stars": 5,
+      "name": "Marcus Thorne",
+      "role": "Lead Architect, NeonCloud",
+      "avatar": "MT"
+    }
+  ],
+  "socialLinks": {
+    "github": "https://github.com/soressa-alemayehu",
+    "linkedin": "https://linkedin.com/in/soressa-alemayehu",
+    "twitter": "https://twitter.com/soressa-alemayehu"
+  },
+  "contact": {
+    "email": "soressaalemayeh21@email.com",
+    "phone": "+251949560510",
+    "location": "City, Country",
+    "github": "github.com/soressa-alemayehu",
+    "linkedin": "linkedin.com/in/soressa-alemayehu"
+  }
+}
