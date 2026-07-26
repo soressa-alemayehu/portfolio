@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Monitor, Cpu, GitBranch, Smartphone, Link as LinkIcon, Cloud, Mail, MapPin } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
 import { SkillsGrid } from '../components/SkillsGrid';
+import { HeroCodeVisual } from '../components/HeroCodeVisual';
+import { TypewriterTitle } from '../components/TypewriterTitle';
 
 export function Home() {
   const { data } = usePortfolio();
@@ -41,19 +43,13 @@ export function Home() {
 
         {/* Left Side Content */}
         <div className="lg:col-span-7 flex flex-col gap-6 text-left relative z-10">
-
-
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.1] font-display"
           >
-            {data.hero.title.split(' | ')[0] || 'Architecting Intelligent'}
-            <span className="block bg-gradient-to-r from-brand-cyan via-brand-indigo to-brand-purple bg-clip-text text-transparent">
-              {data.hero.title.split(' | ')[1] || 'Solutions'}
-            </span>
-          </motion.h1>
+            <TypewriterTitle title={data.hero.title} />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -86,36 +82,9 @@ export function Home() {
           </motion.div>
         </div>
 
-        {/* Right Side - Hero Graphic */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-brand-border bg-brand-bg-card flex items-center justify-center neon-glow-cyan group"
-          >
-            {/* Embedded neon style graphic mock */}
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/10 via-brand-purple/10 to-brand-indigo/10 z-0" />
-            <div className="z-10 p-8 text-center flex flex-col gap-4">
-              <div className="w-20 h-20 rounded-2xl bg-brand-bg border border-brand-border/60 mx-auto flex items-center justify-center text-brand-cyan font-black text-2xl shadow-[0_0_20px_rgba(6,182,212,0.2)]">
-                SA
-              </div>
-              <h3 className="text-white font-mono text-sm font-semibold tracking-widest uppercase">
-                SOFTWARE DEVELOPER
-              </h3>  
-              <p className="text-xs text-brand-text-secondary leading-relaxed">
-                Full-Stack Systems Engineer focusing on deep learning optimizations and client integration.
-              </p>
-              <div className="flex justify-center gap-1.5 mt-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse [animation-delay:0.2s]" />
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-indigo animate-pulse [animation-delay:0.4s]" />
-              </div>
-            </div>
-            {/* Glowing borders */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-cyan to-transparent animate-pulse" />
-            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-purple to-transparent animate-pulse" />
-          </motion.div>
+        {/* Right Side - Interactive Hero Graphic Window */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end relative z-10">
+          <HeroCodeVisual />
         </div>
       </section>
 
@@ -142,59 +111,35 @@ export function Home() {
       </section>
 
       {/* 3. About Section */}
-      <section className="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Left Column */}
-        <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+      <section className="w-full max-w-7xl mx-auto px-6">
+        <div className="w-full p-8 md:p-12 rounded-2xl bg-brand-bg-card border border-brand-border/60 text-left flex flex-col gap-6 relative overflow-hidden shadow-xl">
+          {/* Subtle background glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/5 via-brand-purple/5 to-transparent pointer-events-none" />
+
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight font-display relative z-10">
             {data.about.title}
           </h2>
-          <div className="flex flex-col gap-4 text-brand-text-secondary leading-relaxed text-sm sm:text-base">
+
+          <div className="flex flex-col gap-4 text-brand-text-secondary leading-relaxed text-sm sm:text-base relative z-10 max-w-4xl">
             {data.about.paragraphs.map((p, idx) => (
               <p key={idx}>{p}</p>
             ))}
           </div>
 
           {/* Quote Box */}
-          <div className="mt-4 p-6 rounded-lg bg-brand-bg-card-hover border border-brand-cyan/20 border-l-4 border-l-brand-cyan text-brand-text-secondary text-sm italic font-medium relative overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.05)]">
-            <span className="text-3xl text-brand-cyan/10 font-serif absolute -top-1 -left-1">“</span>
+          <div className="mt-2 p-6 rounded-xl bg-brand-bg-card-hover border border-brand-cyan/20 border-l-4 border-l-brand-cyan text-brand-text-secondary text-sm sm:text-base italic font-medium relative overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.05)] relative z-10 max-w-3xl">
+            <span className="text-4xl text-brand-cyan/15 font-serif absolute -top-1 -left-1">“</span>
             <p className="relative z-10">{data.about.quote}</p>
-          </div>
-        </div>
-
-        {/* Right Column - Cards */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="p-6 rounded-xl bg-brand-bg-card border border-brand-border/60 hover:border-brand-cyan/40 hover:shadow-[0_0_25px_rgba(6,182,212,0.1)] transition-all duration-300 text-left flex flex-col gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
-              <Monitor size={18} />
-            </div>
-            <h3 className="text-base font-bold text-white group-hover:text-brand-cyan transition-colors">
-              Full-Stack Precision
-            </h3>
-            <p className="text-xs text-brand-text-secondary leading-relaxed">
-              Expertise in React, Node.js, and Python ecosystems with a focus on type-safe, maintainable, and high-performance codebases.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl bg-brand-bg-card border border-brand-border/60 hover:border-brand-purple/40 hover:shadow-[0_0_25px_rgba(139,92,246,0.1)] transition-all duration-300 text-left flex flex-col gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple">
-              <Cpu size={18} />
-            </div>
-            <h3 className="text-base font-bold text-white group-hover:text-brand-purple transition-colors">
-              AI
-            </h3>
-            <p className="text-xs text-brand-text-secondary leading-relaxed">
-              Specializing in LLM orchestration, RAG pipelines, embedding vector stores, and custom model API integration.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* 4. Skills Grid ("The Arsenal") */}
+      {/* 4. Skills Grid */}
       <section className="w-full max-w-7xl mx-auto px-6 flex flex-col gap-10">
-        <div className="flex flex-col gap-3 text-left">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">The Arsenal</h2>
+        <div className="flex flex-col gap-2 text-left">
+          <h2 className="text-3xl font-extrabold text-white tracking-tight font-display">Skills & Technologies</h2>
           <p className="text-brand-text-secondary text-sm">
-            Cutting-edge technologies powering modern digital ecosystems.
+            Technologies and tools I work with to build software applications.
           </p>
         </div>
         <SkillsGrid skills={data.skills} />
@@ -202,10 +147,10 @@ export function Home() {
 
       {/* 5. Services Grid */}
       <section className="w-full max-w-7xl mx-auto px-6 flex flex-col gap-10">
-        <div className="flex flex-col gap-3 text-left">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">Engineering Services</h2>
+        <div className="flex flex-col gap-2 text-left">
+          <h2 className="text-3xl font-extrabold text-white tracking-tight font-display">Services</h2>
           <p className="text-brand-text-secondary text-sm">
-            High-performance development services tailored for complex business challenges.
+            Development services I offer.
           </p>
         </div>
 
@@ -236,13 +181,13 @@ export function Home() {
         </div>
       </section>
 
-      {/* 6. Featured Project ("Top Production Case") */}
+      {/* 6. Featured Project */}
       <section className="w-full max-w-7xl mx-auto px-6 flex flex-col gap-10">
         <div className="flex items-end justify-between border-b border-brand-border/30 pb-4">
           <div className="flex flex-col gap-2 text-left">
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">Top Production Case</h2>
+            <h2 className="text-3xl font-extrabold text-white tracking-tight font-display">Featured Project</h2>
             <p className="text-brand-text-secondary text-sm">
-              A deep dive into high-scale engineering.
+              A key project highlighting my development work.
             </p>
           </div>
           <Link
@@ -352,7 +297,7 @@ export function Home() {
               to="/contact"
               className="w-full lg:w-auto px-6 py-3 rounded-lg bg-brand-blue hover:bg-brand-cyan text-white hover:text-brand-bg transition-all font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer duration-300 shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_15px_rgba(6,182,212,0.4)]"
             >
-              Request Consultation
+              Get In Touch
               <ArrowRight size={16} />
             </Link>
           </div>

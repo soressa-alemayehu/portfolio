@@ -3,6 +3,7 @@ import { ScrollProgress } from '../components/ScrollProgress';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
+import { AIChatWidget } from '../components/AIChatWidget';
 import { usePortfolio } from '../context/PortfolioContext';
 
 export function RootLayout() {
@@ -26,6 +27,9 @@ export function RootLayout() {
         logoText={data.siteSettings.logoText}
         socialLinks={data.socialLinks}
       />
+
+      {/* Floating AI Chat Assistant Widget */}
+      <AIChatWidget />
 
       {/* Back to Top Floating Button */}
       <BackToTop />

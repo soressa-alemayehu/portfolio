@@ -32,7 +32,7 @@ export function Services() {
         Services
         </h1>
         <p className="text-brand-text-secondary text-sm sm:text-base leading-relaxed">
-          High-performance development services tailored for complex business challenges. Offering full lifecycle implementation from initial proof-of-concept to global cloud deployments.
+          Development services I offer to help build, deploy, and maintain web and software applications.
         </p>
       </div>
 

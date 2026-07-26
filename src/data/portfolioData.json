@@ -12,12 +12,12 @@
     "secondaryCtaText": "Download Resume"
   },
   "about": {
-    "title": "Technical Mastery & Artificial Intelligence",
+    "title": "About Me",
     "paragraphs": [
-      "I am a passionate Full Stack Developer with experience designing and developing scalable web applications, REST APIs, cloud-based systems, and AI-powered software.",
+      "I am a passionate Full Stack Developer with experience designing and developing web applications, REST APIs, cloud-based systems, and AI-powered software.",
       "I enjoy solving real-world business problems through clean architecture, intuitive user experiences, and modern technologies. My focus is on building reliable, maintainable, and high-performance applications that deliver measurable value."
     ],
-    "quote": "The best software doesn't just solve problems; it anticipates them through data-driven insight."
+    "quote": "Good software doesn't just solve problems; it provides intuitive solutions through thoughtful engineering."
   },
   "stats": [
     { "value": "50+", "label": "Projects Completed" },
@@ -226,14 +226,7 @@
       "featured": false
     }
   ],
-  "certifications": [
-    { "title": "AWS Solutions Architect", "issuer": "AWS", "level": "PROFESSIONAL LEVEL", "icon": "cloud" },
-    { "title": "Google Cloud ML Eng", "issuer": "Google Cloud", "level": "ADVANCED AI/ML", "icon": "cpu" },
-    { "title": "CKAD Certified", "issuer": "CNCF", "level": "KUBERNETES NATIVE", "icon": "terminal" },
-    { "title": "CompTIA Security+", "issuer": "CompTIA", "level": "SECURITY FOUNDATIONS", "icon": "shield" },
-    { "title": "MongoDB Associate", "issuer": "MongoDB", "level": "DATABASE EXPERT", "icon": "database" },
-    { "title": "Meta Front-End", "issuer": "Meta", "level": "UI ARCHITECTURE", "icon": "code" }
-  ],
+  "certifications": [],
   "services": [
     {
       "title": "Web Development",
@@ -291,7 +284,7 @@
   "contact": {
     "email": "soressaalemayeh21@email.com",
     "phone": "+251949560510",
-    "location": "City, Country",
+    "location": "Addis Ababa, Ethiopia",
     "github": "github.com/soressa-alemayehu",
     "linkedin": "linkedin.com/in/soressa-alemayehu"
   }

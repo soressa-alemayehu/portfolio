@@ -112,19 +112,22 @@ export function Resume() {
           </div>
 
           {/* Certifications */}
-          <div className="flex flex-col gap-4">
-            <h2 className="text-xs font-mono font-bold tracking-widest text-white uppercase border-b border-brand-border/20 pb-1.5 w-fit print:text-black print:border-slate-300">
-              Certifications
-            </h2>
-            <div className="flex flex-col gap-2 text-xs text-brand-text-secondary font-mono print:text-slate-700">
-              {data.certifications.map((cert, idx) => (
-                <div key={idx} className="flex items-center justify-between border-b border-brand-border/10 pb-1 print:border-slate-100">
-                  <span>{cert.title}</span>
-                  <span className="text-[9px] text-brand-cyan print:text-slate-800">{cert.level}</span>
-                </div>
-              ))}
+          {/* Certifications (Conditional) */}
+          {data.certifications && data.certifications.length > 0 && (
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xs font-mono font-bold tracking-widest text-white uppercase border-b border-brand-border/20 pb-1.5 w-fit print:text-black print:border-slate-300">
+                Certifications
+              </h2>
+              <div className="flex flex-col gap-2 text-xs text-brand-text-secondary font-mono print:text-slate-700">
+                {data.certifications.map((cert, idx) => (
+                  <div key={idx} className="flex items-center justify-between border-b border-brand-border/10 pb-1 print:border-slate-100">
+                    <span>{cert.title}</span>
+                    <span className="text-[9px] text-brand-cyan print:text-slate-800">{cert.level}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

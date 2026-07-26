@@ -29,7 +29,7 @@ export function Projects() {
           Selected Works
         </h1>
         <p className="text-brand-text-secondary text-sm sm:text-base leading-relaxed">
-          Explore our portfolio of high-performance technical solutions, from custom AI architectures to enterprise-scale web systems.
+          Explore my portfolio of web applications, AI projects, and software tools.
         </p>
       </div>
 

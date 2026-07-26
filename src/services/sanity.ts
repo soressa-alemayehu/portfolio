@@ -25,6 +25,13 @@ export function urlFor(source: any) {
   return builder.image(source).url();
 }
 
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  level: string;
+  icon: string;
+}
+
 export interface PortfolioData {
   siteSettings: typeof fallbackData.siteSettings;
   hero: typeof fallbackData.hero;
@@ -34,7 +41,7 @@ export interface PortfolioData {
   projects: typeof fallbackData.projects;
   experience: typeof fallbackData.experience;
   education: typeof fallbackData.education;
-  certifications: typeof fallbackData.certifications;
+  certifications: CertificationItem[];
   services: typeof fallbackData.services;
   testimonials: typeof fallbackData.testimonials;
   socialLinks: typeof fallbackData.socialLinks;

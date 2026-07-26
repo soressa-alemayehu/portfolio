@@ -27,16 +27,12 @@ export function Experience() {
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-12 md:py-20 flex flex-col gap-20 text-left">
       {/* 1. Page Header with Purple-Pink Accent Bar */}
-      <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-brand-bg-card border border-brand-border text-xs text-brand-purple font-mono w-fit shadow-[0_0_10px_rgba(139,92,246,0.1)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
-          AI ENGINE ACTIVE
-        </div>
+      <div className="flex flex-col gap-4">
         <div className="relative">
           {/* Gradient line indicator */}
           <div className="w-full h-[6px] bg-gradient-to-r from-brand-purple via-brand-indigo to-transparent rounded-full mb-6" />
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white max-w-3xl leading-snug">
-            Building the backbone of modern AI infrastructure through technical mastery and strategic full-stack implementation.
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white max-w-3xl leading-snug font-display">
+            Building clean, reliable web applications and modern digital experiences through practical engineering.
           </h1>
         </div>
       </div>
@@ -50,15 +46,15 @@ export function Experience() {
         <Timeline experience={data.experience} />
       </section>
 
-      {/* 3. Education & Technical Certifications */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      {/* 3. Education & Technical Certifications (Conditional) */}
+      <section className={`grid grid-cols-1 ${data.certifications && data.certifications.length > 0 ? 'lg:grid-cols-12' : ''} gap-12`}>
         {/* Education Column */}
-        <div className="lg:col-span-5 flex flex-col gap-8">
+        <div className={`${data.certifications && data.certifications.length > 0 ? 'lg:col-span-5' : 'w-full'} flex flex-col gap-8`}>
           <h2 className="text-2xl font-black text-white flex items-center gap-2.5 border-b border-brand-border/40 pb-3 font-display">
             <GraduationCap size={24} className="text-brand-emerald" />
             Education
           </h2>
-          <div className="flex flex-col gap-6">
+          <div className={`grid grid-cols-1 ${data.certifications && data.certifications.length > 0 ? '' : 'md:grid-cols-2'} gap-6`}>
             {data.education.map((edu, idx) => (
               <div
                 key={idx}
@@ -80,34 +76,36 @@ export function Experience() {
           </div>
         </div>
 
-        {/* Certifications Column */}
-        <div className="lg:col-span-7 flex flex-col gap-8">
-          <h2 className="text-2xl font-black text-white flex items-center gap-2.5 border-b border-brand-border/40 pb-3 font-display">
-            <Award size={22} className="text-brand-cyan" />
-            Technical Certifications
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {data.certifications.map((cert, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-xl bg-brand-bg-card border border-brand-border/60 hover:border-brand-cyan/30 hover:shadow-[0_0_20px_rgba(6,182,212,0.08)] transition-all duration-300 flex items-start gap-4"
-              >
-                <div className="w-10 h-10 rounded-lg bg-brand-cyan/5 border border-brand-cyan/15 flex items-center justify-center shrink-0">
-                  {renderCertIcon(cert.icon)}
+        {/* Certifications Column - Only rendered when certifications exist */}
+        {data.certifications && data.certifications.length > 0 && (
+          <div className="lg:col-span-7 flex flex-col gap-8">
+            <h2 className="text-2xl font-black text-white flex items-center gap-2.5 border-b border-brand-border/40 pb-3 font-display">
+              <Award size={22} className="text-brand-cyan" />
+              Technical Certifications
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {data.certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-xl bg-brand-bg-card border border-brand-border/60 hover:border-brand-cyan/30 hover:shadow-[0_0_20px_rgba(6,182,212,0.08)] transition-all duration-300 flex items-start gap-4"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-brand-cyan/5 border border-brand-cyan/15 flex items-center justify-center shrink-0">
+                    {renderCertIcon(cert.icon)}
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-sm font-bold text-white leading-tight">{cert.title}</h3>
+                    <p className="text-[10px] text-brand-text-secondary/70 font-mono mt-1 uppercase">
+                      {cert.issuer}
+                    </p>
+                    <span className="text-[9px] font-mono font-bold text-brand-cyan tracking-wider uppercase mt-2">
+                      {cert.level}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <h3 className="text-sm font-bold text-white leading-tight">{cert.title}</h3>
-                  <p className="text-[10px] text-brand-text-secondary/70 font-mono mt-1 uppercase">
-                    {cert.issuer}
-                  </p>
-                  <span className="text-[9px] font-mono font-bold text-brand-cyan tracking-wider uppercase mt-2">
-                    {cert.level}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </section>
 
       {/* 4. Resume & CV Action Area */}
