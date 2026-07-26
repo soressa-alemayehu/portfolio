@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview",
-    "seed:sanity": "node scripts/seedSanity.mjs"
+    "preview": "npm run build && wrangler dev",
+    "seed:sanity": "node scripts/seedSanity.mjs",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@sanity/client": "^7.24.0",
@@ -21,6 +22,7 @@
     "sanity": "^6.5.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.47.0",
     "@sanity/vision": "^6.5.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.2",
@@ -30,6 +32,7 @@
     "oxlint": "^1.71.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "vite": "^8.1.1",
+    "wrangler": "^4.114.0"
   }
 }
