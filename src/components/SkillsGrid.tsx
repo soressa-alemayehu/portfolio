@@ -62,7 +62,7 @@ export function SkillsGrid({ skills }: SkillsGridProps) {
       viewport={{ once: true, margin: '-100px' }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     >
-      {skills.map((skillGroup) => {
+      {(skills || []).map((skillGroup) => {
         const styles = getCategoryStyles(skillGroup.category);
         return (
           <motion.div
@@ -74,7 +74,7 @@ export function SkillsGrid({ skills }: SkillsGridProps) {
               {skillGroup.category}
             </h3>
             <div className="flex flex-wrap gap-2.5">
-              {skillGroup.items.map((skill) => (
+              {(skillGroup.items || []).map((skill) => (
                 <span
                   key={skill}
                   className={`px-3 py-1 rounded-md text-xs font-mono border ${styles.badge} transition-transform hover:scale-105 duration-200`}

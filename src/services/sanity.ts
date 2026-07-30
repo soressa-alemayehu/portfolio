@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 import fallbackData from '../data/portfolioData.json';
 
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || '';
@@ -17,7 +17,7 @@ export const client = isSanityConfigured
     })
   : null;
 
-const builder = client ? imageUrlBuilder(client) : null;
+const builder = client ? createImageUrlBuilder(client) : null;
 
 // Helper to get url for sanity images
 export function urlFor(source: any) {
@@ -78,22 +78,36 @@ export async function fetchPortfolioData(): Promise<PortfolioData> {
     const data: any = await Promise.race([client.fetch(query), timeoutPromise]);
 
     return {
-      siteSettings: data.siteSettings || fallbackData.siteSettings,
-      hero: data.hero || fallbackData.hero,
-      about: data.about || fallbackData.about,
-      stats: data.stats && data.stats.length > 0 ? data.stats : fallbackData.stats,
-      skills: data.skills && data.skills.length > 0 ? data.skills : fallbackData.skills,
-      projects: data.projects && data.projects.length > 0 ? data.projects.map((proj: any) => ({
+      siteSettings: { ...fallbackData.siteSettings, ...(data.siteSettings || {}) },
+      hero: { ...fallbackData.hero, ...(data.hero || {}) },
+      about: {
+        ...fallbackData.about,
+        ...(data.about || {}),
+        paragraphs: (data.about?.paragraphs && data.about.paragraphs.length > 0) ? data.about.paragraphs : fallbackData.about.paragraphs,
+      },
+      stats: (data.stats && data.stats.length > 0) ? data.stats : fallbackData.stats,
+      skills: (data.skills && data.skills.length > 0) ? data.skills.map((sg: any) => ({
+        ...sg,
+        items: sg.items || [],
+      })) : fallbackData.skills,
+      projects: (data.projects && data.projects.length > 0) ? data.projects.map((proj: any) => ({
         ...proj,
+        id: proj.id?.current || proj.id || 'project',
+        techStack: proj.techStack || [],
+        metrics: proj.metrics || [],
         image: proj.image ? urlFor(proj.image) : proj.imageUrl || '',
       })) : fallbackData.projects,
-      experience: data.experience && data.experience.length > 0 ? data.experience : fallbackData.experience,
-      education: data.education && data.education.length > 0 ? data.education : fallbackData.education,
-      certifications: data.certifications && data.certifications.length > 0 ? data.certifications : fallbackData.certifications,
-      services: data.services && data.services.length > 0 ? data.services : fallbackData.services,
-      testimonials: data.testimonials && data.testimonials.length > 0 ? data.testimonials : fallbackData.testimonials,
-      socialLinks: data.socialLinks || fallbackData.socialLinks,
-      contact: data.contact || fallbackData.contact,
+      experience: (data.experience && data.experience.length > 0) ? data.experience.map((exp: any) => ({
+        ...exp,
+        description: exp.description || [],
+        skills: exp.skills || [],
+      })) : fallbackData.experience,
+      education: (data.education && data.education.length > 0) ? data.education : fallbackData.education,
+      certifications: (data.certifications && data.certifications.length > 0) ? data.certifications : fallbackData.certifications,
+      services: (data.services && data.services.length > 0) ? data.services : fallbackData.services,
+      testimonials: (data.testimonials && data.testimonials.length > 0) ? data.testimonials : fallbackData.testimonials,
+      socialLinks: { ...fallbackData.socialLinks, ...(data.socialLinks || {}) },
+      contact: { ...fallbackData.contact, ...(data.contact || {}) },
     };
   } catch (error) {
     console.error('Failed to fetch from Sanity CMS, falling back to local data:', error);

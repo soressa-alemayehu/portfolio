@@ -38,7 +38,7 @@ export function Timeline({ experience }: TimelineProps) {
       viewport={{ once: true, margin: '-100px' }}
       className="relative border-l border-brand-border/60 ml-4 md:ml-6 flex flex-col gap-12"
     >
-      {experience.map((item, index) => (
+      {(experience || []).map((item, index) => (
         <div key={index} className="relative pl-8 md:pl-10">
           {/* Bullet node */}
           <div className="absolute -left-[17px] top-1.5 flex items-center justify-center w-8 h-8 rounded-lg bg-brand-bg-card border border-brand-border text-brand-purple z-10 shadow-[0_0_10px_rgba(139,92,246,0.2)]">
@@ -73,7 +73,7 @@ export function Timeline({ experience }: TimelineProps) {
 
             {/* Achievement description */}
             <ul className="flex flex-col gap-2.5 my-2">
-              {item.description.map((bullet, bIdx) => (
+              {(item.description || []).map((bullet, bIdx) => (
                 <li key={bIdx} className="text-brand-text-secondary text-sm leading-relaxed flex items-start gap-2">
                   <span className="text-brand-purple mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-purple shrink-0" />
                   <span>{bullet}</span>
@@ -83,7 +83,7 @@ export function Timeline({ experience }: TimelineProps) {
 
             {/* Tech badges */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {item.skills.map((skill) => (
+              {(item.skills || []).map((skill) => (
                 <span
                   key={skill}
                   className="px-2.5 py-1 rounded bg-brand-bg-card-hover border border-brand-border text-xs font-mono text-brand-text-secondary hover:text-white transition-colors"

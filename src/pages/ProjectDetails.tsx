@@ -82,7 +82,7 @@ export function ProjectDetails() {
               Technology Stack
             </h3>
             <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
+              {(project.techStack || []).map((tech) => (
                 <span
                   key={tech}
                   className="px-2.5 py-1 rounded bg-brand-bg-card-hover border border-brand-border text-xs font-mono text-brand-text-secondary"
@@ -100,7 +100,7 @@ export function ProjectDetails() {
                 Deployment Metrics
               </h3>
               <ul className="flex flex-col gap-2.5 font-mono text-xs">
-                {project.metrics.map((metric, idx) => (
+                {(project.metrics || []).map((metric, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-brand-cyan">
                     <Check size={14} className="shrink-0 mt-0.5 text-glow-cyan" />
                     <span>{metric}</span>

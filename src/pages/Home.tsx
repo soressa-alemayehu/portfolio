@@ -121,7 +121,7 @@ export function Home() {
           </h2>
 
           <div className="flex flex-col gap-4 text-brand-text-secondary leading-relaxed text-sm sm:text-base relative z-10 max-w-4xl">
-            {data.about.paragraphs.map((p, idx) => (
+            {(data.about.paragraphs || []).map((p, idx) => (
               <p key={idx}>{p}</p>
             ))}
           </div>
@@ -225,7 +225,7 @@ export function Home() {
               <span className="px-2.5 py-0.5 rounded bg-brand-blue/10 text-brand-blue border border-brand-blue/20 text-[10px] font-mono font-bold">
                 {topProject.category}
               </span>
-              {topProject.techStack.slice(0, 2).map((tech) => (
+              {(topProject?.techStack || []).slice(0, 2).map((tech) => (
                 <span
                   key={tech}
                   className="px-2 py-0.5 rounded bg-brand-bg-card-hover border border-brand-border text-[10px] font-mono text-brand-text-secondary"
@@ -237,16 +237,16 @@ export function Home() {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-bold text-white leading-tight">
-                {topProject.title}
+                {topProject?.title}
               </h3>
               <p className="text-brand-text-secondary text-sm leading-relaxed">
-                {topProject.description}
+                {topProject?.description}
               </p>
             </div>
 
             {/* Metrics Checklist */}
             <ul className="flex flex-col gap-2 bg-brand-bg-card/50 border border-brand-border/30 rounded-lg p-4 font-mono text-xs">
-              {topProject.metrics.map((metric, mIdx) => (
+              {(topProject?.metrics || []).map((metric, mIdx) => (
                 <li key={mIdx} className="flex items-center gap-2 text-brand-cyan">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0 animate-pulse text-glow-cyan" />
                   {metric}

@@ -84,7 +84,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Tech tags */}
         <div className="flex flex-wrap gap-1.5 pt-2">
-          {project.techStack.map((tech) => (
+          {(project.techStack || []).map((tech) => (
             <span
               key={tech}
               className="px-2 py-0.5 rounded bg-brand-bg-card-hover border border-brand-border text-[10px] font-mono uppercase text-brand-text-secondary"
