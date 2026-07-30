@@ -71,7 +71,11 @@ export async function fetchPortfolioData(): Promise<PortfolioData> {
       "contact": *[_type == "contact"][0]
     }`;
 
-    const data = await client.fetch(query);
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('Sanity query timeout')), 3500)
+    );
+
+    const data: any = await Promise.race([client.fetch(query), timeoutPromise]);
 
     return {
       siteSettings: data.siteSettings || fallbackData.siteSettings,
