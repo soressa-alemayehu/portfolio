@@ -47,21 +47,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="flex flex-col h-full rounded-xl bg-brand-bg-card border border-brand-border/60 overflow-hidden transition-all duration-300 group"
     >
       {/* Project Image */}
-      <div className="relative aspect-video w-full overflow-hidden bg-brand-bg-card-hover border-b border-brand-border/30">
+      <div className="relative aspect-video w-full overflow-hidden bg-[#070a13] border-b border-brand-border/30 p-2 flex items-center justify-center">
         {project.image ? (
           <>
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
               loading="lazy"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
             {/* Darkening overlay by default, brightens smoothly on hover */}
-            <div className="absolute inset-0 bg-brand-bg/50 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg-card via-transparent to-black/30 opacity-70 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
+            <div className="absolute inset-0 bg-brand-bg/30 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
           </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-brand-indigo/10 to-brand-purple/10 flex items-center justify-center font-mono text-brand-text-secondary/30 text-xs">

@@ -31,14 +31,14 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
         {validImages.length === 1 && (
           <div
             onClick={() => setSelectedImage(mainImage)}
-            className="group relative aspect-video w-full rounded-2xl overflow-hidden bg-brand-bg-card border border-brand-border/70 cursor-pointer shadow-lg hover:border-brand-cyan/60 transition-all duration-300"
+            className="group relative aspect-video w-full rounded-2xl overflow-hidden bg-[#070a13] border border-brand-border/70 cursor-pointer shadow-lg hover:border-brand-cyan/60 transition-all duration-300 p-2 md:p-3 flex items-center justify-center"
           >
             <img
               src={mainImage}
               alt={`${title} Screenshot`}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-brand-bg/40 group-hover:bg-transparent transition-all duration-300" />
+            <div className="absolute inset-0 bg-brand-bg/30 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
             <div className="absolute top-4 right-4 p-2 rounded-lg bg-brand-bg-card/80 border border-brand-border text-white opacity-0 group-hover:opacity-100 transition-opacity">
               <Maximize2 size={16} />
             </div>
@@ -52,14 +52,14 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
               <div
                 key={idx}
                 onClick={() => setSelectedImage(img)}
-                className="group relative aspect-video w-full rounded-2xl overflow-hidden bg-brand-bg-card border border-brand-border/70 cursor-pointer shadow-lg hover:border-brand-cyan/60 transition-all duration-300"
+                className="group relative aspect-video w-full rounded-2xl overflow-hidden bg-[#070a13] border border-brand-border/70 cursor-pointer shadow-lg hover:border-brand-cyan/60 transition-all duration-300 p-2 flex items-center justify-center"
               >
                 <img
                   src={img}
                   alt={`${title} Screenshot ${idx + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-brand-bg/40 group-hover:bg-transparent transition-all duration-300" />
+                <div className="absolute inset-0 bg-brand-bg/30 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
                 <div className="absolute top-4 right-4 p-2 rounded-lg bg-brand-bg-card/80 border border-brand-border text-white opacity-0 group-hover:opacity-100 transition-opacity">
                   <Maximize2 size={16} />
                 </div>
@@ -74,14 +74,14 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
             {/* Top Main Image */}
             <div
               onClick={() => setSelectedImage(mainImage)}
-              className="group relative aspect-video w-full rounded-2xl overflow-hidden bg-brand-bg-card border border-brand-border/70 cursor-pointer shadow-lg hover:border-brand-cyan/60 transition-all duration-300"
+              className="group relative aspect-video w-full rounded-2xl overflow-hidden bg-[#070a13] border border-brand-border/70 cursor-pointer shadow-lg hover:border-brand-cyan/60 transition-all duration-300 p-2 md:p-3 flex items-center justify-center"
             >
               <img
                 src={mainImage}
                 alt={`${title} Main Screenshot`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-brand-bg/40 group-hover:bg-transparent transition-all duration-300" />
+              <div className="absolute inset-0 bg-brand-bg/30 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
               <span className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-brand-bg-card/80 border border-brand-border text-white font-mono text-xs">
                 Main Dashboard View
               </span>
@@ -104,14 +104,14 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
                 <div
                   key={idx}
                   onClick={() => setSelectedImage(img)}
-                  className="group relative aspect-video w-full rounded-xl overflow-hidden bg-brand-bg-card border border-brand-border/60 cursor-pointer shadow-md hover:border-brand-cyan/60 transition-all duration-300"
+                  className="group relative aspect-video w-full rounded-xl overflow-hidden bg-[#070a13] border border-brand-border/60 cursor-pointer shadow-md hover:border-brand-cyan/60 transition-all duration-300 p-2 flex items-center justify-center"
                 >
                   <img
                     src={img}
                     alt={`${title} Screen ${idx + 2}`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-brand-bg/50 group-hover:bg-transparent transition-all duration-300" />
+                  <div className="absolute inset-0 bg-brand-bg/30 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
                   <div className="absolute top-2 right-2 p-1.5 rounded-lg bg-brand-bg-card/80 border border-brand-border text-white opacity-0 group-hover:opacity-100 transition-opacity">
                     <Maximize2 size={14} />
                   </div>
