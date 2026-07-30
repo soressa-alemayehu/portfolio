@@ -3,12 +3,13 @@ import { ArrowLeft, ExternalLink, Check, Layers, ShieldCheck, Terminal } from 'l
 import { GithubIcon } from '../components/SocialIcons';
 import { usePortfolio } from '../context/PortfolioContext';
 import { ProjectGallery } from '../components/ProjectGallery';
+import { PortableTextRenderer } from '../components/PortableTextRenderer';
 
 export function ProjectDetails() {
   const { id } = useParams<{ id: string }>();
   const { data } = usePortfolio();
 
-  const project = data.projects.find((p) => p.id === id);
+  const project = data.projects.find((p: any) => p.id === id);
 
   if (!project) {
     return (
@@ -86,76 +87,18 @@ export function ProjectDetails() {
         </div>
       </div>
 
-      {/* FULL-WIDTH BLOCK 1: Case Study Overview & Highlights */}
-      <div className="w-full flex flex-col gap-6 p-8 md:p-10 rounded-2xl bg-brand-bg-card/70 border border-brand-border/70 backdrop-blur-sm shadow-xl">
-        <div className="flex items-center gap-3 border-b border-brand-border/40 pb-4">
-          <div className="p-2 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
-            <Terminal size={18} />
-          </div>
-          <h2 className="text-xl md:text-2xl font-bold text-white font-display">
-            Case Study Overview
-          </h2>
-        </div>
-
-        {/* Formatted Paragraphs */}
-        <div className="text-brand-text-secondary text-sm md:text-base leading-relaxed flex flex-col gap-4 font-sans">
-          <p className="whitespace-pre-line text-brand-text-primary/90 font-medium">
-            {project.longDescription || project.description}
-          </p>
-        </div>
-
-        {/* Feature Highlights List */}
-        {project.highlights && project.highlights.length > 0 && (
-          <div className="mt-4 pt-6 border-t border-brand-border/30 flex flex-col gap-4">
-            <h3 className="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase flex items-center gap-2">
-              <ShieldCheck size={14} /> Key Architecture & Technical Highlights
-            </h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 font-sans text-xs md:text-sm text-brand-text-secondary">
-              {project.highlights.map((highlight: string, idx: number) => (
-                <li
-                  key={idx}
-                  className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-bg/50 border border-brand-border/40"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan mt-2 shrink-0 animate-pulse text-glow-cyan" />
-                  <span className="leading-snug">{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* Highlight Callout Box */}
-        <div className="p-4 md:p-6 rounded-r-xl border-l-4 border-brand-cyan bg-brand-bg-card-hover/80 border-t border-r border-b border-brand-border/50 text-xs md:text-sm text-brand-text-secondary italic">
-          "{project.tagline}" — Engineered for high scale, reliability, and intuitive developer experience.
-        </div>
-      </div>
-
-      {/* FULL-WIDTH BLOCK 2: Case Study Image Gallery */}
-      <div className="w-full flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-white font-display flex items-center gap-2">
-            System Screenshots & Interface Gallery
-          </h2>
-          <span className="text-xs font-mono text-brand-text-secondary">
-            {allImages.length} {allImages.length === 1 ? 'View' : 'Views'} (Click to Enlarge)
-          </span>
-        </div>
-
-        <ProjectGallery images={allImages} title={project.title} />
-      </div>
-
-      {/* FULL-WIDTH BLOCK 3: Technology Stack & Deployment Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-2">
+      {/* 1. TOP BLOCK: Technology Stack & Deployment Metrics (Positioned UP) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Technology Stack Box */}
         <div className="lg:col-span-7 p-6 md:p-8 rounded-2xl bg-brand-bg-card/70 border border-brand-border/70 flex flex-col gap-4">
           <div className="flex items-center gap-2.5 border-b border-brand-border/30 pb-3">
             <Layers size={16} className="text-brand-purple" />
             <h3 className="font-mono text-xs uppercase tracking-wider text-white font-bold">
-              Technology Stack & Tools
+              Technology Stack & Architecture
             </h3>
           </div>
           <div className="flex flex-wrap gap-2.5 pt-1">
-            {(project.techStack || []).map((tech) => (
+            {(project.techStack || []).map((tech: string) => (
               <span
                 key={tech}
                 className="px-3 py-1.5 rounded-lg bg-brand-bg-card-hover border border-brand-border text-xs font-mono text-brand-text-primary hover:text-brand-cyan hover:border-brand-cyan/40 transition-all"
@@ -171,12 +114,12 @@ export function ProjectDetails() {
           <div className="flex items-center gap-2.5 border-b border-brand-border/30 pb-3">
             <Check size={16} className="text-brand-cyan" />
             <h3 className="font-mono text-xs uppercase tracking-wider text-white font-bold">
-              Deployment Metrics
+              Deployment Metrics & Results
             </h3>
           </div>
           {project.metrics && project.metrics.length > 0 ? (
             <ul className="flex flex-col gap-2.5 font-mono text-xs">
-              {(project.metrics || []).map((metric, idx) => (
+              {(project.metrics || []).map((metric: string, idx: number) => (
                 <li key={idx} className="flex items-center gap-2.5 text-brand-cyan">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0 animate-pulse text-glow-cyan" />
                   <span>{metric}</span>
@@ -188,6 +131,62 @@ export function ProjectDetails() {
               Production verified & optimized.
             </p>
           )}
+        </div>
+      </div>
+
+      {/* 2. MIDDLE BLOCK: System Screenshots & Interface Gallery */}
+      <div className="w-full flex flex-col gap-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-bold text-white font-display flex items-center gap-2">
+            System Screenshots & Interface Gallery
+          </h2>
+          <span className="text-xs font-mono text-brand-text-secondary">
+            {allImages.length} {allImages.length === 1 ? 'View' : 'Views'} (Click to Enlarge)
+          </span>
+        </div>
+
+        <ProjectGallery images={allImages} title={project.title} />
+      </div>
+
+      {/* 3. BOTTOM BLOCK: Case Study Overview (Positioned BELOW the image gallery) */}
+      <div className="w-full flex flex-col gap-6 p-8 md:p-10 rounded-2xl bg-brand-bg-card/70 border border-brand-border/70 backdrop-blur-sm shadow-xl">
+        <div className="flex items-center gap-3 border-b border-brand-border/40 pb-4">
+          <div className="p-2 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan">
+            <Terminal size={18} />
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white font-display">
+            Case Study Overview
+          </h2>
+        </div>
+
+        {/* Rich Text Portable Text Renderer (Supports styles, font sizes, weights, bullets, quotes) */}
+        <div className="text-brand-text-secondary text-sm md:text-base leading-relaxed">
+          <PortableTextRenderer value={project.body || project.longDescription || project.description} />
+        </div>
+
+        {/* Feature Highlights List */}
+        {project.highlights && project.highlights.length > 0 && (
+          <div className="mt-4 pt-6 border-t border-brand-border/30 flex flex-col gap-4">
+            <h3 className="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase flex items-center gap-2">
+              <ShieldCheck size={14} /> Key Architecture Highlights
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 font-sans text-xs md:text-sm text-brand-text-secondary">
+              {project.highlights.map((highlight: string, idx: number) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-bg/50 border border-brand-border/40"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan mt-2 shrink-0 animate-pulse text-glow-cyan" />
+                  <span className="leading-snug">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Highlight Quote Box */}
+        <div className="p-4 md:p-6 rounded-r-xl border-l-4 border-brand-cyan bg-brand-bg-card-hover/80 border-t border-r border-b border-brand-border/50 text-xs md:text-sm text-brand-text-secondary italic">
+          "{project.tagline}" — Engineered for high scale, reliability, and intuitive developer experience.
         </div>
       </div>
     </div>

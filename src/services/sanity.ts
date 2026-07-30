@@ -32,13 +32,30 @@ export interface CertificationItem {
   icon: string;
 }
 
+export interface ProjectItem {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  longDescription?: string;
+  body?: any;
+  category: string;
+  techStack: string[];
+  image: string;
+  galleryImages?: string[];
+  metrics?: string[];
+  highlights?: string[];
+  links?: { live?: string; github?: string };
+  featured: boolean;
+}
+
 export interface PortfolioData {
   siteSettings: typeof fallbackData.siteSettings;
   hero: typeof fallbackData.hero;
   about: typeof fallbackData.about;
   stats: typeof fallbackData.stats;
   skills: typeof fallbackData.skills;
-  projects: typeof fallbackData.projects;
+  projects: ProjectItem[];
   experience: typeof fallbackData.experience;
   education: typeof fallbackData.education;
   certifications: CertificationItem[];
@@ -96,6 +113,8 @@ export async function fetchPortfolioData(): Promise<PortfolioData> {
         techStack: proj.techStack || [],
         metrics: proj.metrics || [],
         highlights: proj.highlights || [],
+        body: proj.body || proj.longDescription || proj.description || '',
+        featured: proj.featured ?? false,
         image: proj.image ? urlFor(proj.image) : proj.imageUrl || '',
         galleryImages: proj.galleryImages && proj.galleryImages.length > 0
           ? proj.galleryImages.map((img: any) => (typeof img === 'string' ? img : urlFor(img)))
