@@ -49,15 +49,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Image */}
       <div className="relative aspect-video w-full overflow-hidden bg-brand-bg-card-hover border-b border-brand-border/30">
         {project.image ? (
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-            onError={(e) => {
-              (e.target as HTMLElement).style.display = 'none';
-            }}
-          />
+          <>
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              onError={(e) => {
+                (e.target as HTMLElement).style.display = 'none';
+              }}
+            />
+            {/* Darkening overlay by default, brightens smoothly on hover */}
+            <div className="absolute inset-0 bg-brand-bg/50 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg-card via-transparent to-black/30 opacity-70 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
+          </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-brand-indigo/10 to-brand-purple/10 flex items-center justify-center font-mono text-brand-text-secondary/30 text-xs">
             No Preview Image

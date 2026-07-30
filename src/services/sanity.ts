@@ -95,7 +95,11 @@ export async function fetchPortfolioData(): Promise<PortfolioData> {
         id: proj.id?.current || proj.id || 'project',
         techStack: proj.techStack || [],
         metrics: proj.metrics || [],
+        highlights: proj.highlights || [],
         image: proj.image ? urlFor(proj.image) : proj.imageUrl || '',
+        galleryImages: proj.galleryImages && proj.galleryImages.length > 0
+          ? proj.galleryImages.map((img: any) => (typeof img === 'string' ? img : urlFor(img)))
+          : (proj.image ? [proj.image ? urlFor(proj.image) : proj.imageUrl || ''] : []),
       })) : fallbackData.projects,
       experience: (data.experience && data.experience.length > 0) ? data.experience.map((exp: any) => ({
         ...exp,

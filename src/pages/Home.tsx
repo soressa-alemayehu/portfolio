@@ -201,17 +201,22 @@ export function Home() {
         {/* Case Study Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-brand-bg-card/40 border border-brand-border/60 rounded-2xl overflow-hidden p-6 md:p-8">
           {/* Project Preview Screen */}
-          <div className="lg:col-span-6 relative aspect-video w-full rounded-xl overflow-hidden bg-brand-bg-card-hover border border-brand-border">
+          <div className="lg:col-span-6 relative aspect-video w-full rounded-xl overflow-hidden bg-brand-bg-card-hover border border-brand-border group">
             {topProject.image ? (
-              <img
-                src={topProject.image}
-                alt={topProject.title}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
+              <>
+                <img
+                  src={topProject.image}
+                  alt={topProject.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLElement).style.display = 'none';
+                  }}
+                />
+                {/* Darkening overlay by default, brightens smoothly on hover */}
+                <div className="absolute inset-0 bg-brand-bg/50 group-hover:bg-transparent transition-all duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-bg-card via-transparent to-black/30 opacity-70 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
+              </>
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-brand-indigo/10 to-brand-purple/10 flex items-center justify-center font-mono text-brand-text-secondary/30 text-xs">
                 Case Study Media Preview

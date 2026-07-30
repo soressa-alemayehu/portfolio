@@ -59,12 +59,23 @@
       "description": "An advanced AI project that enables lightning-fast inference on edge devices by automatically optimizing model weights and operations in real-time.",
       "longDescription": "NeuralFlow v2 addresses the challenges of deploying heavy neural network models to constraint-oriented edge nodes. Built on a hybrid Rust-Python architecture, it performs model quantization, pruning, and layout optimization in flight. Through automated caching and pipeline profiling, it minimizes power draw and maximizes hardware utilization without sacrificing model accuracy.",
       "category": "AI",
-      "techStack": ["Python", "Tensorflow", "Rust"],
+      "techStack": ["Python", "Tensorflow", "Rust", "FastAPI", "Docker"],
       "image": "/images/project1.png",
+      "galleryImages": [
+        "/images/project1.png",
+        "/images/project2.png",
+        "/images/project3.png"
+      ],
       "metrics": [
         "85% Increase in Inference Speed",
         "Zero-latency execution",
         "Custom RAG orchestration"
+      ],
+      "highlights": [
+        "Hybrid Rust-Python architecture for sub-millisecond weight quantization",
+        "Automated memory profiling to ensure low memory footprint on edge devices",
+        "Real-time pipeline profiling and automated fallback execution routes",
+        "Dockerized microservice deployment with built-in health monitoring"
       ],
       "links": {
         "live": "https://neuralflow.devengine.ai",
@@ -79,12 +90,23 @@
       "description": "A high-performance web dashboard displaying real-time stock and cryptocurrency trends, portfolio valuations, and risk calculations.",
       "longDescription": "QuantDashboard is designed for proprietary trading desks and retail investors who require instant market data. Employing binary WebSocket protocols and React 19 concurrent rendering, the platform streams over 10,000 tick updates per second to the client side. Web Workers process incoming data off the main thread, maintaining fluid 60fps animations for charting and visualizations.",
       "category": "Web",
-      "techStack": ["React", "Next.js", "WebSockets", "Node.js"],
+      "techStack": ["React", "Next.js", "WebSockets", "Node.js", "Tailwind CSS"],
       "image": "/images/project2.png",
+      "galleryImages": [
+        "/images/project2.png",
+        "/images/project1.png",
+        "/images/project3.png"
+      ],
       "metrics": [
         "Sub-100ms latency data streams",
         "Multi-threaded calculations",
         "Responsive charts & indicators"
+      ],
+      "highlights": [
+        "Binary WebSocket transport protocols streaming 10,000+ data ticks per second",
+        "Offloaded charting computation using background Web Workers for smooth 60fps UI",
+        "Custom technical analysis indicator engine (RSI, MACD, Bollinger Bands)",
+        "Secure portfolio authorization with encrypted session management"
       ],
       "links": {
         "live": "https://quant.devengine.ai",
@@ -98,19 +120,30 @@
       "tagline": "Command-line interface for automating complex cloud deployments.",
       "description": "A developer tool designed to bootstrap microservices, configure infrastructure-as-code, and manage deployments securely from the terminal.",
       "longDescription": "DevEngine CLI simplifies cloud orchestrations by consolidating multiple provider workflows into a single terminal utility. Developers can configure resources, create databases, establish SSL certificates, and link repositories in seconds. Built-in encryption secures environment variables and credentials locally before transmitting them to container clusters.",
-      "category": "Open Source",
-      "techStack": ["Go", "Terraform", "CLI"],
+      "category": "Tools",
+      "techStack": ["Go", "Node.js", "Docker", "Bash", "PostgreSQL"],
       "image": "/images/project3.png",
+      "galleryImages": [
+        "/images/project3.png",
+        "/images/project1.png",
+        "/images/project2.png"
+      ],
       "metrics": [
-        "Over 5,000 active CLI installs",
-        "Automated multi-cloud integrations",
-        "Highly secure secrets management"
+        "10x Faster Environment Setup",
+        "Encrypted credential vaults",
+        "Multi-cloud deployment hooks"
+      ],
+      "highlights": [
+        "Automated infrastructure provisioning across multiple cloud providers",
+        "End-to-end credential vault encryption using AES-256 GCM",
+        "Interactive CLI prompts with autocompletion and progress indicators",
+        "Modular plugin architecture for custom CI/CD pipeline triggers"
       ],
       "links": {
         "live": "https://cli.devengine.ai",
         "github": "https://github.com/soressa-alemayehu/devengine-cli"
       },
-      "featured": true
+      "featured": false
     },
     {
       "id": "erp-platform",
